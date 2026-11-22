@@ -1,0 +1,107 @@
+:root {
+  --accent: #b21313;
+  --accent-hover: #8f0f0f;
+  --error: #b00020;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #2c3e50;
+  /* The original used an expiring stock-photo URL; a gradient never breaks. */
+  background: linear-gradient(135deg, #e8f1e4 0%, #f7efe2 100%) fixed;
+}
+
+main {
+  max-width: 64rem;
+  margin: 0 auto;
+  padding: 1.5rem 1rem 3rem;
+}
+
+h1 { text-align: center; font-size: 2rem; margin: 1.5rem 0; }
+h2 { text-align: center; }
+
+#recipe-form {
+  display: flex;
+  flex-direction: column;
+  max-width: 38rem;
+  margin: 0 auto;
+  padding: 1.25rem;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+label { font-weight: 600; margin-top: 0.5rem; color: #444; }
+
+input, textarea {
+  margin: 0.35rem 0 0.5rem;
+  padding: 12px;
+  font: inherit;
+  background: #fafafa;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+}
+input:focus-visible, textarea:focus-visible {
+  border-color: var(--accent);
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
+button {
+  padding: 10px 18px;
+  font: inherit;
+  font-weight: 600;
+  color: #fff;
+  background: var(--accent);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+button:hover { background: var(--accent-hover); }
+button:focus-visible { outline: 3px solid #000; outline-offset: 2px; }
+button.secondary { background: #5d6d7e; }
+button.secondary:hover { background: #4a5866; }
+button[hidden] { display: none; }
+
+.form-actions { display: flex; gap: 0.75rem; }
+.form-message { min-height: 1.4em; margin: 0.25rem 0 0.75rem; font-weight: 600; }
+.form-message.error { color: var(--error); }
+
+#recipe-list { margin-top: 2.5rem; }
+
+#recipes {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.25rem;
+}
+
+#recipes li {
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  overflow-wrap: anywhere;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+#recipes li:hover { transform: translateY(-4px); box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15); }
+#recipes li p { margin: 0.4rem 0; line-height: 1.5; text-align: left; }
+#recipes li h3 { margin: 0 0 0.5rem; }
+#recipes li.empty { grid-column: 1 / -1; text-align: center; background: transparent; box-shadow: none; }
+#recipes li.empty:hover { transform: none; box-shadow: none; }
+
+.actions { display: flex; gap: 0.5rem; margin-top: 0.75rem; }
+
+@media (max-width: 480px) {
+  h1 { font-size: 1.5rem; }
+  .form-actions button { flex: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #recipes li { transition: none; }
+  #recipes li:hover { transform: none; }
+}

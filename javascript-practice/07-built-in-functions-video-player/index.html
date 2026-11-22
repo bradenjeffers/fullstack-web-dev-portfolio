@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A playlist-driven video player with search, shuffle, next/previous and keyboard-accessible controls.">
+  <title>Video Player</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="videos.js" defer></script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main class="music-player">
+    <section class="player-info" aria-live="polite">
+      <h1 id="video-title"></h1>
+      <p id="video-artist"></p>
+    </section>
+
+    <section class="controls" aria-label="Player controls">
+      <div class="button-container">
+        <button type="button" id="prev-button">Previous</button>
+        <button type="button" id="play-button">Play</button>
+        <button type="button" id="next-button">Next</button>
+        <button type="button" id="shuffle-button" aria-pressed="false">Shuffle</button>
+      </div>
+      <video id="video" controls preload="metadata"></video>
+      <p id="player-error" class="player-error" role="alert" hidden></p>
+    </section>
+
+    <section class="video-list-box" aria-label="Playlist">
+      <label for="search-input" class="visually-hidden">Search videos</label>
+      <input type="search" id="search-input" placeholder="Search video" autocomplete="off">
+      <ul id="video-list" class="playlist"></ul>
+    </section>
+  </main>
+</body>
+</html>

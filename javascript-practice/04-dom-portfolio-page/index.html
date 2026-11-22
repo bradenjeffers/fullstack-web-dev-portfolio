@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A small portfolio page that renders project cards and lets you add new ones using DOM manipulation.">
+  <title>My Portfolio</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="js/projects.js" defer></script>
+  <script src="js/script.js" defer></script>
+</head>
+<body>
+  <main class="container">
+    <h1>My Portfolio</h1>
+
+    <section class="section" aria-labelledby="about-heading">
+      <h2 id="about-heading">About Me</h2>
+      <p>
+        I'm learning full-stack web development. This page is a DOM-manipulation exercise:
+        the project cards below are generated from a JavaScript array, and the form lets you add new ones.
+      </p>
+    </section>
+
+    <section id="form-container" class="section" aria-labelledby="form-heading">
+      <h2 id="form-heading">Enter New Project Details</h2>
+      <form id="project-form" novalidate>
+        <div class="field">
+          <label for="title">Project title</label>
+          <input type="text" id="title" name="title" class="inputField" placeholder="Title..." maxlength="80" required>
+        </div>
+        <div class="field">
+          <label for="desc">Project description</label>
+          <textarea id="desc" name="desc" class="inputField" rows="4" placeholder="Description..." maxlength="300" required></textarea>
+        </div>
+        <div class="field">
+          <label for="image">Image URL</label>
+          <input type="url" id="image" name="image" class="inputField" placeholder="https://..." required>
+        </div>
+        <p id="form-message" class="form-message" role="status" aria-live="polite"></p>
+        <button type="submit">Save</button>
+      </form>
+    </section>
+
+    <section id="projects-section" class="section" aria-labelledby="projects-heading">
+      <h2 id="projects-heading">My Projects</h2>
+      <div id="projects"></div>
+    </section>
+  </main>
+</body>
+</html>
