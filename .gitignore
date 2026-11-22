@@ -1,0 +1,22 @@
+# Dependencies and build output
+node_modules/
+build/
+dist/
+coverage/
+
+# Secrets and local config (commit .env.example files, never real .env files)
+.env
+.env.*
+!.env.example
+
+# Logs and editor/OS files
+*.log
+npm-debug.log*
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Python caches (SQL validation script)
+__pycache__/
+*.pyc
