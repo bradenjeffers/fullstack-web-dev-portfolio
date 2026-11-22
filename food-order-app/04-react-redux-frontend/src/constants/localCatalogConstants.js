@@ -1,0 +1,2 @@
+export const LOCAL_ITEM_ADD = "LOCAL_ITEM_ADD";
+export const LOCAL_ITEM_REMOVE = "LOCAL_ITEM_REMOVE";
