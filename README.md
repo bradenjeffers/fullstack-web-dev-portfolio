@@ -46,8 +46,8 @@ Honest summary of how each part was checked when this repository was prepared (d
 | `javascript-practice/04`, `06`, `07` | Exercised in headless Chromium; no automated tests |
 | `food-order-app/01-02` | Loaded in headless Chromium; links checked |
 | `food-order-app/05` | 44 tests pass (Node 22) |
-| `food-order-app/03`, `04` | Source parsed and linted; **`npm install`, build and tests not yet run** (CI workflow included) |
-| `food-order-app/06` | Source parsed and loaded with stubs; **never booted against MongoDB, tests not yet run** (CI workflow included) |
+| `food-order-app/03`, `04` | 6 and 33 tests pass and the production build compiles, on GitHub Actions (Node 22) |
+| `food-order-app/06` | 98 tests pass against a real MongoDB 7 service, on GitHub Actions (Node 22) |
 | `food-order-app/07` | Schema, seed and all queries run through a SQLite stand-in; **not yet run on real MySQL 8** |
 | `food-order-app/08` | Scripts run against a mock of `mongosh`; **not yet run on real MongoDB** |
 

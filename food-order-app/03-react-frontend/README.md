@@ -93,4 +93,6 @@ src/
 
 ## Status
 
-Source changes were checked in a restricted sandbox where the npm registry was unreachable (HTTP 403 from the egress proxy), so `npm install`, `npm run build` and `CI=true npm test` have **not** been run on the final code. What was checked: every file in `src/` parses as valid JSX and passes ESLint with `no-unused-vars` and `no-undef`. There is no `package-lock.json` yet (the original was removed rather than hand-edited); `npm install` creates one, and it should be committed. Run the commands above to confirm the build and tests on your machine.
+Verified on GitHub Actions (Node 22, a clean `npm install`): the 6 React Testing Library tests pass and `npm run build` compiles. Before that, every file in `src/` was also parsed and linted locally. There is no `package-lock.json` in this folder (the original was removed rather than hand-edited); `npm install` creates one, and it should be committed.
+
+Two problems only a real install exposed, both fixed: `@testing-library/dom` is now pinned to v8 so `user-event` and React Testing Library share one copy (otherwise clicks were not wrapped in `act()` and four tests failed), and the ESLint config uses the built-in `jest` environment so the production build compiles.

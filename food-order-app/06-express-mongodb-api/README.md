@@ -224,7 +224,7 @@ The source was two copies of the same project: a completed service layer without
 
 ## Status
 
-- Verified here: every file passes `node --check`; all application and test modules load with third-party packages stubbed (checks require paths and imported names); the error handler, validation helpers, `HttpError`, `selfOrAdmin`/`isAdmin` and the configuration rules (missing secret fails fast, test runs use a `_test` database) were exercised directly with plain Node.
-- Not verified: `npm install` could not run in the environment where this was prepared (the package registry was blocked) and no MongoDB server was available, so the Express app was not booted and the mocha/supertest suite has not been run. Treat the tests as unrun until you run them: start MongoDB (step 1 above), `npm install`, then `npm test`. Fix any failure you see; there may be small mistakes in code and tests that only a real run exposes.
+- Verified on GitHub Actions (Node 22, a `mongo:7` service container, clean `npm install`): the full mocha/supertest suite passes, 98 tests, passing on the first run. That covers booting the Express app, MongoDB access, JWT auth, role checks and validation.
+- Not verified: a manual run of the server against your own data, and any deployment. The tests run against a throwaway `_test` database.
 - There is no `package-lock.json` yet (the original was removed rather than hand-edited). The first `npm install` creates one; commit it.
 - Not production-ready: see limitations above.

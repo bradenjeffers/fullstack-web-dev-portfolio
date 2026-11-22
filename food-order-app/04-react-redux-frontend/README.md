@@ -140,10 +140,8 @@ Tests sit next to the code they cover (`*.test.js`); `src/test-utils.js` renders
 
 ## Status
 
-What was verified, and how (Node 22, in the sandbox used to prepare this folder):
+Verified on GitHub Actions (Node 22, a clean `npm install`): all 33 tests pass (4 suites: reducers, actions, API helpers, App) and `npm run build` compiles. Before that, syntax and import resolution of every file were checked by bundling with esbuild. There is no `package-lock.json` in this folder (the original was removed rather than hand-edited); `npm install` creates one, and it should be committed.
 
-- **Not run: `npm install`, `npm run build`, `CI=true npm test`.** The sandbox blocks the npm registry (HTTP 403 from its egress proxy), so no dependencies could be installed. The build and the React Testing Library tests in `src/App.test.js` have therefore never been executed.
-- There is no `package-lock.json` yet (the original was removed rather than hand-edited). The first `npm install` creates one; commit it.
-- Syntax and import resolution of every source and test file were checked by bundling them with esbuild (packages external).
-- The reducer, helper and thunk tests (`reducers.test.js`, `apiHelpers.test.js`, `actions.test.js`: 29 tests) were executed with a small Jest-compatible shim and all passed. Real Jest was not used, so Jest-specific behaviour (module mocking, matcher details) is unconfirmed.
-- The real action creators and a real axios were run against the running `05-node-http-api` server: successful login (no password in the resulting user), failed login ("Invalid username or password"), and the categories (15), cuisines (10) and restaurants (10) lists. The UI itself was not rendered or clicked through, and the 06 API was not run.
+The first CI run exposed one problem, now fixed: the ESLint config used the `react-app/jest` preset, which failed the production build with `Environment key "jest/globals" is unknown`. It now uses ESLint's built-in `jest` environment.
+
+Not verified: the app running in a browser against project 05 or 06 (the tests mock the API client).
