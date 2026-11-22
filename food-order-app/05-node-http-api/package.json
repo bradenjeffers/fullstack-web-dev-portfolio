@@ -1,0 +1,16 @@
+{
+  "name": "food-order-app-node-api",
+  "version": "1.0.0",
+  "description": "Dependency-free Node.js (http module) REST API for the Food Order App, backed by JSON files",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node --test"
+  },
+  "keywords": ["nodejs", "rest-api", "http", "food-order-app", "no-dependencies"],
+  "engines": {
+    "node": ">=18"
+  },
+  "license": "MIT",
+  "private": true
+}
