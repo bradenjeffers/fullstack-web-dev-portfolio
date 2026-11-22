@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add Category - Food Order Admin</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav aria-label="Admin">
+      <ul>
+        <li><a href="../index.html">Dashboard</a></li>
+        <li><a href="list_fooditems.html">Food items</a></li>
+        <li><a href="list_cuisines.html">Cuisines</a></li>
+        <li><a href="list_categories.html" aria-current="page">Categories</a></li>
+        <li><a href="list_restaurants.html">Restaurants</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main class="container">
+    <h1>Add Category</h1>
+    <form id="addCategoryForm" action="#" method="get">
+      <fieldset>
+        <legend>Category details</legend>
+        <div class="field">
+          <label for="name">Category name</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        <div class="field">
+          <label for="description">Description</label>
+          <textarea id="description" name="description" rows="4"></textarea>
+        </div>
+        <div class="field">
+          <label for="active">Active?</label>
+          <input type="checkbox" id="active" name="active" checked>
+        </div>
+        <div class="field">
+          <label for="image">Image URL</label>
+          <input type="url" id="image" name="image" placeholder="https://..." required>
+        </div>
+      </fieldset>
+      <div class="form-actions">
+        <button type="reset" class="secondary">Discard</button>
+        <button type="submit">Save</button>
+      </div>
+    </form>
+  </main>
+</body>
+</html>

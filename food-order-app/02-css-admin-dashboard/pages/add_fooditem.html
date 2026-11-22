@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add Food Item - Food Order Admin</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav aria-label="Admin">
+      <ul>
+        <li><a href="../index.html">Dashboard</a></li>
+        <li><a href="list_fooditems.html" aria-current="page">Food items</a></li>
+        <li><a href="list_cuisines.html">Cuisines</a></li>
+        <li><a href="list_categories.html">Categories</a></li>
+        <li><a href="list_restaurants.html">Restaurants</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main class="container">
+    <h1>Add Food Item</h1>
+    <form id="addFoodItemForm" action="#" method="get">
+      <fieldset>
+        <legend>Food item details</legend>
+        <div class="field">
+          <label for="name">Food item name</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        <div class="field">
+          <label for="description">Description</label>
+          <textarea id="description" name="description" rows="4"></textarea>
+        </div>
+        <div class="field">
+          <label for="available">Available?</label>
+          <input type="checkbox" id="available" name="available" checked>
+        </div>
+        <div class="field">
+          <label for="vegetarian">Vegetarian?</label>
+          <input type="checkbox" id="vegetarian" name="vegetarian">
+        </div>
+        <div class="field">
+          <label for="category">Category</label>
+          <select id="category" name="category"><option value="Pasta">Pasta</option><option value="Pizza">Pizza</option><option value="Sandwich">Sandwich</option><option value="Soup">Soup</option></select>
+        </div>
+        <div class="field">
+          <label for="cuisine">Cuisine</label>
+          <select id="cuisine" name="cuisine"><option value="Italian">Italian</option><option value="Asian">Asian</option><option value="Chinese">Chinese</option></select>
+        </div>
+        <div class="field">
+          <label for="image">Image URL</label>
+          <input type="url" id="image" name="image" placeholder="https://..." required>
+        </div>
+      </fieldset>
+      <div class="form-actions">
+        <button type="reset" class="secondary">Discard</button>
+        <button type="submit">Save</button>
+      </div>
+    </form>
+  </main>
+</body>
+</html>
